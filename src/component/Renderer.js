@@ -1,36 +1,16 @@
-import { useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-
-function Box (props) {
-  const ref = useRef()
-  const [hoverd, hover] = useState(false)
-  const [clicked, click] = useState(false)
-
-  useFrame((state, delta) => (ref.current.rotation.x += 0.01))
-
-  return (
-    <mesh
-      {...props}
-      ref={ref}
-      scale={clicked ? 1.5 : 1}
-      onClick={(e) => click(!clicked)}
-      onPointerOver={(e) => hover(true)}
-      onPointerOut={(e) => hover(false)}
-    >
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hoverd ? 'hotpink' : 'orange'} />
-    </mesh>
-  )
-}
+import { Canvas } from '@react-three/fiber'
+import { Sky, Environment } from '@react-three/drei'
+import Model from './Model'
 
 function Renderer () {
   return (
-    <div className="absolute top-0 w-full h-full">
-      <Canvas>
+    <div className="w-screen h-screen">
+      <Canvas gl={{ logarithmicDepthBuffer: true, antialias: false }} camera={{ position: [0, 0, 1], fov: 25 }}>
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
+        <Environment files="model/background/background.hdr" />
+        <Model />
+        <Sky />
       </Canvas>
     </div>
   )

@@ -108,7 +108,7 @@ function Selector () {
 
 
   return (
-    <div className="absolute w-full left-0 bottom-0">
+    <div className="absolute w-full left-0 bottom-0 z-10">
       <div className="p-5 flex flex-col justify-between lg:flex-row">
         { selectColor() }
         { selectModel() }

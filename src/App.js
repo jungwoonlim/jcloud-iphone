@@ -3,10 +3,10 @@ import Renderer from "./component/Renderer";
 
 function App() {
   return (
-    <div className="main">
+    <>
       <Home />
       <Renderer />
-    </div>
+    </>
   );
 }
 
