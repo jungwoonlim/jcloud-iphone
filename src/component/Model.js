@@ -6,8 +6,8 @@ import useDeepCompareEffect from 'use-deep-compare-effect'
 function Model({ model }) {
   const ref = useRef()
   const modelUrl = model === 'iPhone'
-    ? '/model/iphone-14/scene.gltf'
-    : '/model/iphone-14-pro/scene.gltf'
+    ? '/jcloud-iphone/model/iphone-14/scene.gltf'
+    : '/jcloud-iphone/model/iphone-14-pro/scene.gltf'
 
   const { scene } = useLoader(GLTFLoader, modelUrl)
   useFrame(() => ref.current.rotation.y += 0.01)

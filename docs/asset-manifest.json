@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/jcloud-iphone/static/css/main.25bcc388.css",
+    "main.js": "/jcloud-iphone/static/js/main.b16415a4.js",
+    "static/media/jCloud.png": "/jcloud-iphone/static/media/jCloud.2edc0c0646900f3f85d2.png",
+    "index.html": "/jcloud-iphone/index.html",
+    "main.25bcc388.css.map": "/jcloud-iphone/static/css/main.25bcc388.css.map",
+    "main.b16415a4.js.map": "/jcloud-iphone/static/js/main.b16415a4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25bcc388.css",
+    "static/js/main.b16415a4.js"
+  ]
+}
