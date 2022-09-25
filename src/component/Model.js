@@ -1,12 +1,24 @@
-import { Suspense } from 'react'
-import { useLoader } from '@react-three/fiber'
+import { useRef, Suspense } from 'react'
+import { useFrame, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 function Model() {
-  const gltf = useLoader(GLTFLoader, '/model/iphone-14-pro/scene.gltf')
+  const ref = useRef()
+  const { scene } = useLoader(GLTFLoader, '/model/iphone-14-pro/scene.gltf')
+
+  useFrame((state, delta) => {
+    ref.current.rotation.x += 0.001
+    ref.current.rotation.y += 0.01
+  })
+
   return (
     <Suspense fallback={null}>
-      <primitive object={gltf.scene} position={[0, -0.05, -0.25]} />
+      <mesh
+        ref={ref}
+        position={[0, 0, 0]}
+      >
+        <primitive object={scene} position={[0, -0.05, 0]} />
+      </mesh>
     </Suspense>
   )
 }
