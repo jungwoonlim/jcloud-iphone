@@ -1,5 +1,6 @@
 import { Canvas } from '@react-three/fiber'
-import { Sky, Environment, OrbitControls } from '@react-three/drei'
+import { Environment, OrbitControls } from '@react-three/drei'
+import { Effects } from './Effects'
 import Model from './Model'
 
 function Renderer () {
@@ -19,13 +20,13 @@ function Renderer () {
         <pointLight position={[10, 10, 10]} />
         <Environment files="model/background/background.hdr" />
         <Model />
-        <Sky />
         <OrbitControls
           enablePan={false}
           enableZoom={false}
           minPolarAngle={Math.PI / 2.2}
           maxPolarAngle={Math.PI / 2.2}
         />
+        <Effects />
       </Canvas>
     </div>
   )

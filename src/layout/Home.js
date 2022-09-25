@@ -89,7 +89,7 @@ function Home () {
 
   return (
     <>
-      <div className="absolute w-screen top-0 px-5 flex justify-between items-center z-10">
+      <div className="absolute w-screen top-0 px-5 flex justify-between text-white items-center z-10">
         <div className="name">
           { target.model }
         </div>
@@ -97,7 +97,7 @@ function Home () {
           <img src={ logoSrc } alt="logo" />
         </div>
       </div>
-      <div className="absolute w-full left-0 bottom-0 z-10">
+      <div className="absolute w-full left-0 bottom-0 z-10 text-white">
         <div className="p-5 flex flex-col justify-between lg:flex-row">
           { selectColor() }
           { selectModel() }
