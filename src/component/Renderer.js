@@ -7,7 +7,7 @@ import Loader from './Loader'
 
 function Renderer (props) {
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen fade-in">
       <Canvas
         gl={{
           logarithmicDepthBuffer: true,

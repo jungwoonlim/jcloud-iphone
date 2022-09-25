@@ -1,5 +1,5 @@
-import { Html, useProgress } from '@react-three/drei'
 import { useEffect } from 'react'
+import { Html, useProgress } from '@react-three/drei'
 
 function Loader (props) {
   const { progress, total } = useProgress()
@@ -14,8 +14,11 @@ function Loader (props) {
   }, [isLoading, progress, total])
 
   return (
-    <Html center>
-      <span className="text-white">{ parseInt(progress, 10) }%</span>
+    <Html
+      wrapperClas="fade-out"
+      center
+    >
+      <span className="text-white text-xl">{ parseInt(progress, 10) }%</span>
     </Html>
   )
 }
