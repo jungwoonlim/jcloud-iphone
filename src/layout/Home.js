@@ -7,7 +7,7 @@ function Home (props) {
 
   return (
     <>
-      <div className="absolute w-screen top-0 px-5 text-white z-10">
+      <div className="absolute w-screen top-0 px-5 text-white z-10 fade-in">
         <div className="flex justify-between items-center">
           <div className="name">
             { model }

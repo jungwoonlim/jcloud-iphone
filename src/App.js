@@ -4,18 +4,28 @@ import Renderer from "./component/Renderer";
 
 function App() {
   const [model, setModel] = useState('iPhone')
+  const [loading, setLoading] = useState(false)
 
   const updateModel = (item) => {
     setModel(item)
   }
 
+  const isLoading = () => {
+    setLoading(true)
+  } 
+
   return (
     <>
-      <Home
+      {loading && (
+        <Home
+          model={model}
+          updateModel={updateModel}
+        />
+      )}
+      <Renderer
         model={model}
-        updateModel={updateModel}
+        isLoading={isLoading}
       />
-      <Renderer model={model} />
     </>
   );
 }
