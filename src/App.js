@@ -1,10 +1,11 @@
 import Home from "./layout/Home";
+import Renderer from "./component/Renderer";
 
 function App() {
   return (
     <div className="main">
       <Home />
-      <div className="renderer"></div>
+      <Renderer />
     </div>
   );
 }
