@@ -1,9 +1,12 @@
+import Home from "./layout/Home";
+
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div className="main">
+      <Home />
+      <div className="renderer"></div>
+    </div>
   );
 }
 
-export default App;
+export default App
