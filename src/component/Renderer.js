@@ -3,7 +3,7 @@ import { Environment, OrbitControls } from '@react-three/drei'
 import { Effects } from './Effects'
 import Model from './Model'
 
-function Renderer () {
+function Renderer (props) {
   return (
     <div className="w-screen h-screen">
       <Canvas
@@ -19,7 +19,7 @@ function Renderer () {
         <ambientLight />
         <pointLight position={[10, 10, 10]} />
         <Environment files="model/background/background.hdr" />
-        <Model />
+        <Model {...props} />
         <OrbitControls
           enablePan={false}
           enableZoom={false}

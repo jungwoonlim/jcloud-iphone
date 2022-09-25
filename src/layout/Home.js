@@ -1,107 +1,37 @@
-import { useState } from 'react'
-import { iphone, iphonePro } from '../static/const.js'
-import logoSrc from '../assets/jCloud.svg'
+import logoSrc from '../assets/jCloud.png'
 
-const iphoneList = [
-  iphone.blue,
-  iphone.purple,
-  iphone.midNight,
-  iphone.starLight,
-  iphone.red,
-]
-
-const iphoneProList = [
-  iphonePro.deepPurple,
-  iphonePro.gold,
-  iphonePro.silver,
-  iphonePro.spaceBlack,
-]
-
-function Home () {
-  const [target, setTarget] = useState(iphone.blue)
-
-  const ColorCard = ({ src, label, color, changeModel }) => {
-    return (
-      <div
-        className="w-20 flex flex-col gap-2"
-        onClick={() => setTarget(changeModel)}
-      >
-        <img
-          src={ src }
-          alt={ label }
-        />
-        <p className="text-center text-xs hidden sm:block">
-          { color }
-        </p>
-      </div>
-    )
-  }
-
-  const selectColor = () => {
-    const itemList = target.model === 'iphone'
-      ? iphoneList
-      : iphoneProList
-
-    return (
-      <div className="flex gap-5 p-2 w-full lg:w-2/5 items-end">
-        {itemList.map((item) => (
-          <ColorCard
-            key={item.label}
-            { ...item }
-            changeModel={item}
-          />)
-        )}
-      </div>
-    )
-  }
-
-  const ModelCard = ({ src, label, model, changeModel }) => {
-    return (
-      <div
-        className="flex flex-col gap-2 w-16 md:w-16 justify-end hidden sm:block"
-        onClick={() => setTarget(changeModel)}
-      >
-        <img
-          src={ src }
-          alt={ label }
-        />
-        <p className="text-center mx-auto text-xs whitespace-nowrap">
-          { model }
-        </p>
-      </div>
-    )
-  }
-
-  const selectModel = () => {
-    return (
-      <div className="flex gap-5 p-2 w-full lg:w-1/6 justify-start lg:justify-end">
-        <ModelCard
-          { ...iphone.base }
-          changeModel={iphone.blue}
-          />
-        <ModelCard
-          { ...iphonePro.base }
-          changeModel={iphonePro.deepPurple}
-        />
-      </div>
-    )
-  }
+function Home (props) {
+  const {
+    model, updateModel
+  } = props
 
   return (
     <>
-      <div className="absolute w-screen top-0 px-5 flex justify-between text-white items-center z-10">
-        <div className="name">
-          { target.model }
+      <div className="absolute w-screen top-0 px-5 text-white z-10">
+        <div className="flex justify-between items-center">
+          <div className="name">
+            { model }
+          </div>
+          <div className="Logo w-32">
+            <img src={ logoSrc } alt="logo" />
+          </div>
         </div>
-        <div className="Logo w-32">
-          <img src={ logoSrc } alt="logo" />
-        </div>
-      </div>
-      <div className="absolute w-full left-0 bottom-0 z-10 text-white">
-        <div className="p-5 flex flex-col justify-between lg:flex-row">
-          { selectColor() }
-          { selectModel() }
-        </div>
+        <div className="flex gap-5 justify-center mt-5">
+            <button
+              type="button"
+              className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+              onClick={() => updateModel('iPhone')}
+            >
+              iPhone 14
+            </button>
+            <button
+              type="button"
+              className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+              onClick={() => updateModel('iPhone Pro')}
+            >
+              iPhone 14 Pro
+            </button>
+          </div>
       </div>
     </>
   )

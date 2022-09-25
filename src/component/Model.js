@@ -1,15 +1,25 @@
 import { useRef, Suspense } from 'react'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import useDeepCompareEffect from 'use-deep-compare-effect'
 
-function Model() {
+function Model(props) {
   const ref = useRef()
-  const { scene } = useLoader(GLTFLoader, '/model/iphone-14-pro/scene.gltf')
+  const { model } = props
 
-  useFrame((state, delta) => {
-    ref.current.rotation.x += 0.001
-    ref.current.rotation.y += 0.01
-  })
+  const modelUrl = model === 'iPhone'
+    ? '/model/iphone-14/scene.gltf'
+    : '/model/iphone-14-pro/scene.gltf'
+
+  const { scene } = useLoader(GLTFLoader, modelUrl)
+  useDeepCompareEffect(() => {
+    if (model === 'iPhone') {
+      scene.scale.set(0.03, 0.03, 0.03)
+      scene.position.set(0, 0.025, 0)
+    }
+  }, [model, scene])
+
+  useFrame(() => ref.current.rotation.y += 0.01)
 
   return (
     <Suspense fallback={null}>
