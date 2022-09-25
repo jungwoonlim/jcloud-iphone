@@ -1,4 +1,8 @@
 const iphone = {
+  base: {
+    src: require('../assets/iphone-14.png'),
+    label: 'iphone 14',
+  },
   red: {
     src: require('../assets/iphone-14-red.png'),
     label: 'iphone 14 red',
@@ -21,6 +25,10 @@ const iphone = {
   },
 }
 const iphonePro = {
+  base: {
+    src: require('../assets/iphone-14-pro.png'),
+    label: 'iphone 14 Pro',
+  },
   deepPurple: {
     src: require('../assets/iphone-14-pro-deeppurple.png'),
     label: 'iphone 14 Pro deeppurple',
