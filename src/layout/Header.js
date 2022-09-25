@@ -2,7 +2,7 @@ import logoSrc from '../assets/jCloud.svg'
 
 function Header () {
   return (
-    <div className="px-5 flex justify-between items-center">
+    <div className="absolute w-screen top-0 px-5 flex justify-between items-center z-10">
       <div className="name">
         iPhone 14
       </div>

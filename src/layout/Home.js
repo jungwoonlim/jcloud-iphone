@@ -3,10 +3,10 @@ import Selector from "./Selector"
 
 function Home () {
   return (
-    <div>
+    <>
       <Header />
       <Selector />
-    </div>
+    </>
   )
 }
 
