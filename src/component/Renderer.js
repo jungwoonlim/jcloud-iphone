@@ -5,9 +5,9 @@ import { Effects } from './Effects'
 import Model from './Model'
 import Loader from './Loader'
 
-function Renderer (props) {
+function Renderer ({ isLoading, model }) {
   return (
-    <div className="w-screen h-screen fade-in">
+    <div className="w-screen h-screen">
       <Canvas
         gl={{
           logarithmicDepthBuffer: true,
@@ -18,16 +18,18 @@ function Renderer (props) {
           fov: 25,
         }}
       >
-        <Suspense fallback={<Loader isLoading={props.isLoading} />}>
+        <Suspense fallback={
+          <Loader isLoading={ isLoading } />
+        }>
           <ambientLight />
-          <pointLight position={[10, 10, 10]} />
+          <pointLight position={ [10, 10, 10] } />
           <Environment files="model/background/background.hdr" />
-          <Model {...props} />
+          <Model model={ model } />
           <OrbitControls
-            enablePan={false}
-            enableZoom={false}
-            minPolarAngle={Math.PI / 2.2}
-            maxPolarAngle={Math.PI / 2.2}
+            enablePan={ false }
+            enableZoom={ false }
+            minPolarAngle={ Math.PI / 2.2 }
+            maxPolarAngle={ Math.PI / 2.2 }
           />
           <Effects />
         </Suspense>

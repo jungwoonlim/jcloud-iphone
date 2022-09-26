@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { Html, useProgress } from '@react-three/drei'
+import classNames from 'classnames'
 
-function Loader (props) {
-  const { progress, total } = useProgress()
-  const { isLoading } = props
+function Loader ({ isLoading }) {
+  const { progress } = useProgress()
 
   useEffect(() => {
     if (progress === 100) {
@@ -11,14 +11,19 @@ function Loader (props) {
         isLoading()
       }, 1000)
     }
-  }, [isLoading, progress, total])
+  }, [isLoading, progress])
 
   return (
+    // <Html wrapperClass="fade-out" center>
     <Html
-      wrapperClas="fade-out"
+      wrapperClass={classNames({
+        'fade-out': progress === 100,
+      })}
       center
     >
-      <span className="text-white text-xl">{ parseInt(progress, 10) }%</span>
+      <span className="text-white text-xl">
+        { parseInt(progress, 10) }%
+      </span>
     </Html>
   )
 }
