@@ -9,7 +9,6 @@ function App() {
   const updateModel = (item) => {
     setModel(item)
   }
-
   const isLoading = () => {
     setLoading(true)
   } 
@@ -18,13 +17,13 @@ function App() {
     <>
       {loading && (
         <Home
-          model={model}
-          updateModel={updateModel}
+          model={ model }
+          updateModel={ updateModel }
         />
       )}
       <Renderer
-        model={model}
-        isLoading={isLoading}
+        model={ model }
+        isLoading={ isLoading }
       />
     </>
   );
