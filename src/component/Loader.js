@@ -14,7 +14,6 @@ function Loader ({ isLoading }) {
   }, [isLoading, progress])
 
   return (
-    // <Html wrapperClass="fade-out" center>
     <Html
       wrapperClass={classNames({
         'fade-out': progress === 100,

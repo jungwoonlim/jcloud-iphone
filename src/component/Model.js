@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useFrame, useLoader } from '@react-three/fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import useDeepCompareEffect from 'use-deep-compare-effect'
+import { useDeepCompareEffect } from 'use-deep-compare'
 
 function Model({ model }) {
   const ref = useRef()
